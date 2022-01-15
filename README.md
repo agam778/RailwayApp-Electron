@@ -1,5 +1,6 @@
 # Railway.app - Electron
-An Unofficial Electron wrapper for a freemium host, [Railway.app](https://railway.app).
+An Unofficial Electron wrapper for a freemium host, [Railway.app](https://railway.app).<br><br>
+<img width="75%" height=auto src="https://user-images.githubusercontent.com/68941022/149623790-e25577c8-c423-42b6-a8bc-58f0d4d5d7f3.gif">
 
 # Note:
 I am not affiliated with [Railway.app](https://railway.app). Just making a desktop app for it. Please don't report the host's issues here.
