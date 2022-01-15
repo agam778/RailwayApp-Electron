@@ -168,7 +168,7 @@ function createWindow() {
       url.startsWith("https://docs.railway.app") ||
       url.startsWith("https://discord.gg") ||
       url.includes("up.railway.app") ||
-      url.includes("github.com") ||
+      url.includes("https://github.com/railwayapp") ||
       url.includes("twitter.com") ||
         url.includes("notion.so") ||
         url.includes("feedback.railway.app") ||
