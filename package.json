@@ -1,0 +1,78 @@
+{
+  "name": "railwayapp-electron",
+  "productName": "Railway.app - Electron",
+  "version": "0.1.0",
+  "description": "An Electron wrapper for Railway.app",
+  "main": "main.js",
+  "repository":{
+    "type": "git",
+    "url": "https://github.com/agam778/RailwayApp-Electron.git"
+  },
+  "build": {
+    "appId": "app.railway.electron",
+    "productName": "Railway.app - Electron",
+    "linux": {
+      "category": "Development",
+      "desktop": {
+        "Comment": "An Electron wrapper for Railway.app",
+        "Name": "Railway.app - Electron",
+        "StartupNotify": "true",
+        "Terminal": "false",
+        "Type": "Application",
+        "Categories": "Development;"
+      },
+      "icon": "icon.png",
+      "artifactName": "Railwayapp-Electron-Setup-${version}-x86_64.${ext}",
+      "executableName": "Railway.app - Electron",
+      "maintainer": "Agampreet Singh <agam778@zohomail.in>",
+      "target": [
+        "deb",
+        "rpm",
+        "AppImage"
+      ]
+    },
+    "deb": {
+      "compression": "bzip2"
+    },
+    "mac": {
+      "category": "public.app-category.developer-tools",
+      "target": [
+        "dmg"
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": false,
+      "license": "LICENSE"
+    },
+    "win": {
+      "target": [
+        "nsis"
+      ]
+    },
+    "directories": {
+      "output": "release"
+    }
+  },
+  "scripts": {
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
+  },
+  "author": {
+    "name": "Agampreet Singh",
+    "email": "agam778@zohomail.in",
+    "url": "https://agam778.is-a.dev"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^16.0.7",
+    "electron-builder": "^22.14.5"
+  },
+  "dependencies": {
+    "about-window": "^1.15.2",
+    "electron-store": "^8.0.1",
+    "is-online": "^9.0.1"
+  }
+}
