@@ -35,7 +35,7 @@ const app_menu = [
     label: "Application",
     submenu: [
       {
-        label: "About 'Railway.app - Electron'",
+        label: "About 'RailwayApp - Electron'",
         click: () =>
           openAboutWindow({
             icon_path: `${__dirname}/icon.png`,

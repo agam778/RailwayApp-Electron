@@ -1,6 +1,6 @@
 {
   "name": "railwayapp-electron",
-  "productName": "Railway.app - Electron",
+  "productName": "RailwayApp-Electron",
   "version": "0.1.0",
   "description": "An Electron wrapper for Railway.app",
   "main": "main.js",
@@ -10,20 +10,19 @@
   },
   "build": {
     "appId": "app.railway.electron",
-    "productName": "Railway.app - Electron",
+    "productName": "RailwayApp-Electron",
     "linux": {
       "category": "Development",
       "desktop": {
         "Comment": "An Electron wrapper for Railway.app",
-        "Name": "Railway.app - Electron",
+        "Name": "RailwayApp - Electron",
         "StartupNotify": "true",
         "Terminal": "false",
         "Type": "Application",
         "Categories": "Development;"
       },
       "icon": "icon.png",
-      "artifactName": "Railwayapp-Electron-Setup-${version}-x86_64.${ext}",
-      "executableName": "Railway.app - Electron",
+      "executableName": "RailwayApp-Electron",
       "maintainer": "Agampreet Singh <agam778@zohomail.in>",
       "target": [
         "deb",
