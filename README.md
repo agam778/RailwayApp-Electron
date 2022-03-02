@@ -14,7 +14,7 @@ Your data is totally safe, and I won't collect any of your data. This app is ope
 1. Logging in with GitHub Account is working.
 2. You can choose to open Home Page or Dashboard.
 3. Railway Docs, Twitter, Discord, Your websites etc. will open in browser instead of the app.
-4. More Coming Soon!
+4. And more!
 
 # Download
 This app is available for Windows, MacOS and Linux.

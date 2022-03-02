@@ -41,7 +41,8 @@ const app_menu = [
             icon_path: `${__dirname}/icon.png`,
             product_name: "Railway.app - Electron",
             package_json_dir: __dirname,
-            bug_report_url: "https://github.com/agam778/RailwayApp-Electron/issues",
+            bug_report_url:
+              "https://github.com/agam778/RailwayApp-Electron/issues",
             bug_link_text: "Report a bug",
             adjust_window_size: "2",
             show_close_button: "Close",
@@ -55,7 +56,7 @@ const app_menu = [
         },
       },
       {
-        label: "Open Home Page",
+        label: "Open Home Page on Launch",
         type: "radio",
         click() {
           store.set("launchURL", "https://railway.app/");
@@ -69,7 +70,7 @@ const app_menu = [
         checked: store.get("launchURL") === "https://railway.app/",
       },
       {
-        label: "Open Dashboard",
+        label: "Open Dashboard on Launch",
         type: "radio",
         click() {
           store.set("launchURL", "https://railway.app/dashboard");
@@ -86,6 +87,41 @@ const app_menu = [
       {
         role: "quit",
         accelerator: process.platform === "darwin" ? "Ctrl+Q" : "Ctrl+Q",
+      },
+    ],
+  },
+  {
+    label: "Navigation",
+    submenu: [
+      {
+        label: "Back",
+        click: () => {
+          BrowserWindow.getFocusedWindow().webContents.goBack();
+        },
+      },
+      {
+        label: "Forward",
+        click: () => {
+          BrowserWindow.getFocusedWindow().webContents.goForward();
+        },
+      },
+      {
+        label: "Reload",
+        click: () => {
+          BrowserWindow.getFocusedWindow().webContents.reload();
+        },
+      },
+      {
+        label: "Home",
+        click: () => {
+          BrowserWindow.getFocusedWindow().loadURL(
+            `${
+              store.get("launchURL")
+                ? store.get("launchURL")
+                : "https://railway.app/"
+            }`
+          );
+        },
       },
     ],
   },
@@ -141,6 +177,36 @@ const app_menu = [
             { role: "window" },
           ]
         : [{ role: "close" }]),
+      {
+        label: "Show Menu Bar",
+        type: "radio",
+        click: () => {
+          store.set("autohide-menubar", "false");
+          dialog.showMessageBoxSync({
+            type: "info",
+            title: "Menu Bar Settings",
+            message:
+              "Menu will be visible now. Please restart the app for changes to take effect.",
+            buttons: ["OK"],
+          });
+        },
+        checked: store.get("autohide-menubar") === "false",
+      },
+      {
+        label: "Hide Menu Bar (Press ALT To show for some time)",
+        type: "radio",
+        click: () => {
+          store.set("autohide-menubar", "true");
+          dialog.showMessageBoxSync({
+            type: "info",
+            title: "Menu Bar Settings",
+            message:
+              "Menu bar will be automatically hidden now. Please restart the app for changes to take effect.",
+            buttons: ["OK"],
+          });
+        },
+        checked: store.get("autohide-menubar") === "true",
+      },
     ],
   },
 ];
@@ -159,6 +225,12 @@ function createWindow() {
     },
   });
 
+  if (store.get("autohide-menubar") === "true") {
+    win.setAutoHideMenuBar(true);
+  } else {
+    win.setAutoHideMenuBar(false);
+  }
+
   win.loadURL(store.get("launchURL") || "https://railway.app", {
     userAgent:
       "Mozilla/5.0 (x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.71 Safari/537.36",
@@ -170,10 +242,10 @@ function createWindow() {
       url.includes("up.railway.app") ||
       url.includes("https://github.com/railwayapp") ||
       url.includes("twitter.com") ||
-        url.includes("notion.so") ||
-        url.includes("feedback.railway.app") ||
-        url.includes("blog.railway.app") ||
-        url.includes("shop.railway.app")
+      url.includes("notion.so") ||
+      url.includes("feedback.railway.app") ||
+      url.includes("blog.railway.app") ||
+      url.includes("shop.railway.app")
     ) {
       shell.openExternal(url);
       e.preventDefault();
